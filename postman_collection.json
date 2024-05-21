@@ -1,0 +1,177 @@
+{
+    "info": {
+      "name": "Yelp API",
+      "_postman_id": "12345678-1234-1234-1234-123456789012",
+      "description": "Postman collection for Yelp-like API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create Business",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-Client-ID",
+              "value": "{{client_id}}"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer {{api_key}}"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"name\": \"Sample Business\",\n    \"alias\": \"sample-business\",\n    \"url\": \"http://www.samplebusiness.com\",\n    \"phone\": \"+123456789\",\n    \"display_phone\": \"+1 (234) 567-89\",\n    \"rating\": 4.5,\n    \"review_count\": 120,\n    \"latitude\": 37.773972,\n    \"longitude\": -122.431297,\n    \"address\": \"1234 Market St\",\n    \"city\": \"San Francisco\",\n    \"zip_code\": \"94103\",\n    \"country\": \"US\",\n    \"state\": \"CA\",\n    \"categories\": [\"food\", \"restaurant\"]\n}"
+          },
+          "url": {
+            "raw": "{{base_url}}/business",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "business"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Update Business",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-Client-ID",
+              "value": "{{client_id}}"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer {{api_key}}"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"name\": \"Updated Business\",\n    \"rating\": 4.7\n}"
+          },
+          "url": {
+            "raw": "{{base_url}}/business/1",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "business",
+              "1"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Delete Business",
+        "request": {
+          "method": "DELETE",
+          "header": [
+            {
+              "key": "X-Client-ID",
+              "value": "{{client_id}}"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer {{api_key}}"
+            }
+          ],
+          "url": {
+            "raw": "{{base_url}}/business/1",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "business",
+              "1"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Search Businesses",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "X-Client-ID",
+              "value": "{{client_id}}"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer {{api_key}}"
+            }
+          ],
+          "url": {
+            "raw": "{{base_url}}/business/search?term=food&location=San+Francisco&latitude=37.773972&longitude=-122.431297&radius=5000&categories=food,restaurant&limit=10",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "business",
+              "search"
+            ],
+            "query": [
+              {
+                "key": "term",
+                "value": "food"
+              },
+              {
+                "key": "location",
+                "value": "San Francisco"
+              },
+              {
+                "key": "latitude",
+                "value": "37.773972"
+              },
+              {
+                "key": "longitude",
+                "value": "-122.431297"
+              },
+              {
+                "key": "radius",
+                "value": "5000"
+              },
+              {
+                "key": "categories",
+                "value": "food,restaurant"
+              },
+              {
+                "key": "limit",
+                "value": "10"
+              }
+            ]
+          }
+        },
+        "response": []
+      }
+    ],
+    "variable": [
+      {
+        "key": "base_url",
+        "value": "http://localhost/api"
+      },
+      {
+        "key": "client_id",
+        "value": "DSj6I8qbyHf-Zm2fGExuug"
+      },
+      {
+        "key": "api_key",
+        "value": "Ubf1-f0uqsJUnssqPMGo-tiFeZTT85oFmKfznlPmjDtX8s83jYMoAb-ApuD63wgq6 LDZNsUXG6gurZIVYaj2jzxJmmLdCdXbDqIHU_b6KiCEVi8v-YB0OSsW6MWaY3Yx"
+      }
+    ]
+  }
